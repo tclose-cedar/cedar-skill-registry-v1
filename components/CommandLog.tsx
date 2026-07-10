@@ -33,7 +33,7 @@ export default function CommandLog() {
         className="flex w-full items-center justify-between px-4 py-2 hover:bg-gray-900 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <span className="text-gray-400">⬡ Command Log</span>
+          <span className="text-gray-400">Command Log</span>
           {log.length > 0 && (
             <span className="rounded bg-gray-800 px-2 py-0.5 text-gray-300">
               {log.length} call{log.length !== 1 ? 's' : ''}

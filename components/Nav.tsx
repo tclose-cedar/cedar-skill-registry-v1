@@ -5,7 +5,6 @@ export default function Nav() {
     <header style={{ backgroundColor: '#b2f200' }}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <span style={{ color: '#1a3300' }} className="text-2xl leading-none">⬡</span>
           <span style={{ color: '#1a3300' }} className="font-bold text-lg tracking-tight">
             Cedar Skill Registry
           </span>
