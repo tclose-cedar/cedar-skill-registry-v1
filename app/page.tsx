@@ -76,11 +76,11 @@ export default function Home() {
     }))
     .filter((g) => g.skills.length > 0)
 
-  const [activeFn, setActiveFn] = useState(grouped[0]?.fn ?? null)
+  const [activeFn, setActiveFn] = useState<string | 'all'>(grouped[0]?.fn ?? 'all')
   const [installingFn, setInstallingFn] = useState<string | null>(null)
   const [installedFns, setInstalledFns] = useState<Set<string>>(new Set())
 
-  const activeGroup = grouped.find((g) => g.fn === activeFn) ?? grouped[0]
+  const activeGroup = grouped.find((g) => g.fn === activeFn) ?? null
 
   async function handleInstall(fn: string, fnSkills: Skill[]) {
     setInstallingFn(fn)
@@ -103,6 +103,25 @@ export default function Home() {
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Functions</p>
         </div>
         <nav className="flex-1 py-2">
+          {/* All */}
+          <button
+            onClick={() => setActiveFn('all')}
+            className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+              activeFn === 'all'
+                ? 'bg-emerald-50 text-emerald-700 font-medium'
+                : 'text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            <span>All</span>
+            <span className={`rounded-full px-2 py-0.5 text-xs ${activeFn === 'all' ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-400'}`}>
+              {publishedSkills.length}
+            </span>
+          </button>
+
+          {/* Divider */}
+          <div className="mx-4 my-1.5 h-px bg-gray-100" />
+
+          {/* Per-function */}
           {grouped.map(({ fn, label, skills: groupSkills }) => {
             const isActive = fn === activeFn
             const isInstalled = installedFns.has(fn)
@@ -134,38 +153,68 @@ export default function Home() {
 
       {/* Content panel */}
       <div className="flex-1 overflow-y-auto">
-        {activeGroup && (
-          <div className="p-8">
-            {/* Panel header */}
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">{activeGroup.label}</h1>
-                <p className="text-sm text-gray-400 mt-0.5">{activeGroup.skills.length} skills</p>
-              </div>
-              <button
-                onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
-                disabled={installingFn !== null || installedFns.has(activeGroup.fn)}
-                className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 disabled:cursor-not-allowed transition-colors shadow-sm"
-              >
-                {installingFn === activeGroup.fn && (
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                )}
-                {installedFns.has(activeGroup.fn)
-                  ? '✓ Installed'
-                  : installingFn === activeGroup.fn
-                  ? 'Installing...'
-                  : `Install ${activeGroup.label}`}
-              </button>
-            </div>
-
-            {/* Skills grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {activeGroup.skills.map((skill) => (
-                <SkillCard key={skill.id} skill={skill} />
+        <div className="p-8">
+          {activeFn === 'all' ? (
+            /* All view — grouped sections with per-section install */
+            <div className="space-y-10">
+              {grouped.map(({ fn, label, skills: groupSkills }) => (
+                <section key={fn}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <h2 className="text-base font-semibold text-gray-800">{label}</h2>
+                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+                      {groupSkills.length}
+                    </span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                    <button
+                      onClick={() => handleInstall(fn, groupSkills)}
+                      disabled={installingFn !== null || installedFns.has(fn)}
+                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-emerald-400 hover:text-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      {installingFn === fn && (
+                        <span className="h-3 w-3 animate-spin rounded-full border border-gray-400 border-t-gray-700" />
+                      )}
+                      {installedFns.has(fn) ? '✓ Installed' : installingFn === fn ? 'Installing...' : 'Install'}
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {groupSkills.map((skill) => (
+                      <SkillCard key={skill.id} skill={skill} />
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
-          </div>
-        )}
+          ) : activeGroup ? (
+            /* Single-function view */
+            <>
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h1 className="text-xl font-bold text-gray-900">{activeGroup.label}</h1>
+                  <p className="text-sm text-gray-400 mt-0.5">{activeGroup.skills.length} skills</p>
+                </div>
+                <button
+                  onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
+                  disabled={installingFn !== null || installedFns.has(activeGroup.fn)}
+                  className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 disabled:cursor-not-allowed transition-colors shadow-sm"
+                >
+                  {installingFn === activeGroup.fn && (
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                  )}
+                  {installedFns.has(activeGroup.fn)
+                    ? '✓ Installed'
+                    : installingFn === activeGroup.fn
+                    ? 'Installing...'
+                    : `Install ${activeGroup.label}`}
+                </button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {activeGroup.skills.map((skill) => (
+                  <SkillCard key={skill.id} skill={skill} />
+                ))}
+              </div>
+            </>
+          ) : null}
+        </div>
       </div>
     </div>
   )
