@@ -95,7 +95,7 @@ export default function Home() {
 
   return (
     // Full-height layout between nav (56px) and command log (40px)
-    <div className="flex" style={{ height: 'calc(100vh - 56px - 40px)' }}>
+    <div className="flex" style={{ height: 'calc(100vh - 64px - 40px)' }}>
 
       {/* Sidebar */}
       <aside className="w-56 shrink-0 border-r border-gray-200 bg-white flex flex-col overflow-y-auto">
