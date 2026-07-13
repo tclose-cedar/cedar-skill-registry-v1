@@ -2,13 +2,18 @@ import Link from 'next/link'
 
 export default function Nav() {
   return (
-    <header style={{ backgroundColor: '#b2f200' }}>
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
+    <header style={{ backgroundColor: '#b2f200' }} className="flex h-16 items-center">
+      {/* Title column — same width as the sidebar */}
+      <div className="w-56 shrink-0 px-4">
+        <Link href="/">
           <span style={{ color: '#1a3300' }} className="font-bold text-lg tracking-tight">
             Cedar Skill Registry
           </span>
         </Link>
+      </div>
+
+      {/* Right section — sits over the content panel */}
+      <div className="flex-1 flex items-center justify-end px-8">
         <span
           style={{ color: '#1a3300', borderColor: 'rgba(0,0,0,0.15)', backgroundColor: 'rgba(0,0,0,0.08)' }}
           className="rounded-full border px-3 py-1 text-xs font-medium"
