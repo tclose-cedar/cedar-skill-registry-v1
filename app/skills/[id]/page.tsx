@@ -6,7 +6,7 @@ import { useStore } from '@/lib/store'
 const sourceColors: Record<string, string> = {
   marco: 'bg-violet-100 text-violet-700',
   rootstock: 'bg-blue-100 text-blue-700',
-  'cm-ops': 'bg-emerald-100 text-emerald-700',
+  'cm-ops': 'bg-[#dbffb5] text-gray-800',
   'kora-sierra': 'bg-teal-100 text-teal-700',
 }
 
@@ -25,7 +25,7 @@ export default function SkillDetailPage({
     return (
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">
         <p className="text-gray-400">Skill not found.</p>
-        <Link href="/" className="mt-4 inline-block text-sm text-emerald-600 hover:underline">
+        <Link href="/" className="mt-4 inline-block text-sm text-gray-500 hover:text-gray-900 hover:underline">
           &larr; Back to catalog
         </Link>
       </div>

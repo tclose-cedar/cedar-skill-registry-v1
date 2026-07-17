@@ -5,7 +5,7 @@ import { CommandLogEntry } from '@/lib/types'
 const typeColors: Record<CommandLogEntry['type'], string> = {
   api: 'text-blue-400',
   webhook: 'text-yellow-400',
-  ci: 'text-green-400',
+  ci: 'text-[#b2f200]',
 }
 
 const typeLabels: Record<CommandLogEntry['type'], string> = {
@@ -68,7 +68,7 @@ export default function CommandLog() {
                   {formatParams(entry.params)}
                   <div className="ml-4 mt-0.5">
                     <span className="text-gray-500">→ </span>
-                    <span className="text-emerald-400">{entry.result}</span>
+                    <span className="text-[#b2f200]">{entry.result}</span>
                   </div>
                 </div>
               ))}

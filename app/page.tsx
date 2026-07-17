@@ -8,7 +8,7 @@ import { Skill } from '@/lib/types'
 const sourceColors: Record<string, string> = {
   marco: 'bg-violet-100 text-violet-700',
   rootstock: 'bg-blue-100 text-blue-700',
-  'cm-ops': 'bg-emerald-100 text-emerald-700',
+  'cm-ops': 'bg-[#dbffb5] text-gray-800',
   'kora-sierra': 'bg-teal-100 text-teal-700',
 }
 
@@ -44,7 +44,7 @@ function SkillCard({ skill }: { skill: Skill }) {
         </div>
         <span className="shrink-0 text-xs text-gray-400">{skill.usageCount} uses</span>
       </div>
-      <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors">
+      <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">
         {skill.name}
       </h3>
       <p className="text-sm text-gray-500 line-clamp-2 flex-1 mb-3">{skill.description}</p>
@@ -108,12 +108,12 @@ export default function Home() {
             onClick={() => setActiveFn('all')}
             className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
               activeFn === 'all'
-                ? 'bg-emerald-50 text-emerald-700 font-medium'
+                ? 'bg-[#dbffb5] text-gray-900 font-medium'
                 : 'text-gray-600 hover:bg-gray-50'
             }`}
           >
             <span>All</span>
-            <span className={`rounded-full px-2 py-0.5 text-xs ${activeFn === 'all' ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-400'}`}>
+            <span className={`rounded-full px-2 py-0.5 text-xs ${activeFn === 'all' ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-gray-400'}`}>
               {publishedSkills.length}
             </span>
           </button>
@@ -131,14 +131,14 @@ export default function Home() {
                 onClick={() => setActiveFn(fn)}
                 className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
                   isActive
-                    ? 'bg-emerald-50 text-emerald-700 font-medium'
+                    ? 'bg-[#dbffb5] text-gray-900 font-medium'
                     : 'text-gray-600 hover:bg-gray-50'
                 }`}
               >
                 <span>{label}</span>
                 <div className="flex items-center gap-1.5">
-                  {isInstalled && <span className="text-emerald-500 text-xs">✓</span>}
-                  <span className={`rounded-full px-2 py-0.5 text-xs ${isActive ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-400'}`}>
+                  {isInstalled && <span className="text-gray-500 text-xs">✓</span>}
+                  <span className={`rounded-full px-2 py-0.5 text-xs ${isActive ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-gray-400'}`}>
                     {groupSkills.length}
                   </span>
                 </div>
@@ -168,7 +168,7 @@ export default function Home() {
                     <button
                       onClick={() => handleInstall(fn, groupSkills)}
                       disabled={installingFn !== null || installedFns.has(fn)}
-                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-emerald-400 hover:text-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-[#b2f200] hover:bg-[#dbffb5] hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {installingFn === fn && (
                         <span className="h-3 w-3 animate-spin rounded-full border border-gray-400 border-t-gray-700" />
@@ -195,10 +195,10 @@ export default function Home() {
                 <button
                   onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
                   disabled={installingFn !== null || installedFns.has(activeGroup.fn)}
-                  className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 disabled:cursor-not-allowed transition-colors shadow-sm"
+                  className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 bg-[#b2f200] hover:bg-[#dbffb5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm"
                 >
                   {installingFn === activeGroup.fn && (
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-gray-900/20 border-t-gray-900" />
                   )}
                   {installedFns.has(activeGroup.fn)
                     ? '✓ Installed'

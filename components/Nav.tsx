@@ -6,7 +6,7 @@ export default function Nav() {
       {/* Title column — same width as the sidebar */}
       <div className="w-56 shrink-0 px-4">
         <Link href="/">
-          <span style={{ color: '#1a3300' }} className="font-bold text-lg tracking-tight">
+          <span className="font-bold text-lg tracking-tight text-gray-900">
             Cedar Skill Registry
           </span>
         </Link>
@@ -15,8 +15,8 @@ export default function Nav() {
       {/* Right section — sits over the content panel */}
       <div className="flex-1 flex items-center justify-end px-8">
         <span
-          style={{ color: '#1a3300', borderColor: 'rgba(0,0,0,0.15)', backgroundColor: 'rgba(0,0,0,0.08)' }}
-          className="rounded-full border px-3 py-1 text-xs font-medium"
+          style={{ borderColor: 'rgba(0,0,0,0.15)', backgroundColor: 'rgba(0,0,0,0.08)' }}
+          className="rounded-full border px-3 py-1 text-xs font-medium text-gray-900"
         >
           v1
         </span>
