@@ -6,8 +6,8 @@ export default function Nav() {
       {/* Title column — same width as the sidebar */}
       <div className="w-56 shrink-0 px-4">
         <Link href="/">
-          <span className="font-bold text-lg tracking-tight text-gray-900">
-            Cedar Skill Registry
+          <span className="font-medium text-lg tracking-tight text-gray-900">
+            cedar skill registry
           </span>
         </Link>
       </div>
