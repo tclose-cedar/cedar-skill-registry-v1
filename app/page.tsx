@@ -98,7 +98,7 @@ export default function Home() {
     <div className="flex" style={{ height: 'calc(100vh - 64px - 40px)' }}>
 
       {/* Sidebar */}
-      <aside className="w-56 shrink-0 border-r border-gray-200 bg-white flex flex-col overflow-y-auto">
+      <aside className="w-56 shrink-0 border-r border-gray-200 bg-[#f9f8f1] flex flex-col overflow-y-auto">
         <div className="px-4 py-5 border-b border-gray-100">
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Functions</p>
         </div>
