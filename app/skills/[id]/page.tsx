@@ -24,8 +24,8 @@ export default function SkillDetailPage({
   if (!skill) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">
-        <p className="text-gray-400">Skill not found.</p>
-        <Link href="/" className="mt-4 inline-block text-sm text-gray-500 hover:text-gray-900 hover:underline">
+        <p className="text-[#6e6e6e]">Skill not found.</p>
+        <Link href="/" className="mt-4 inline-block text-sm text-[#6e6e6e] hover:text-gray-900 hover:underline">
           &larr; Back to catalog
         </Link>
       </div>
@@ -36,43 +36,43 @@ export default function SkillDetailPage({
     <div className="max-w-3xl mx-auto px-6 py-8">
       <Link
         href="/"
-        className="text-sm text-gray-400 hover:text-gray-600 transition-colors mb-6 inline-block"
+        className="text-sm text-[#6e6e6e] hover:text-[#6e6e6e] transition-colors mb-6 inline-block"
       >
         &larr; Back to catalog
       </Link>
 
       <div className="mb-6">
         <div className="flex flex-wrap gap-2 mb-3">
-          <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${sourceColors[skill.source] ?? 'bg-gray-100 text-gray-600'}`}>
+          <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${sourceColors[skill.source] ?? 'bg-gray-100 text-[#6e6e6e]'}`}>
             {skill.source}
           </span>
-          <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+          <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-[#6e6e6e]">
             {skill.function}
           </span>
         </div>
         <h1 className="text-2xl font-bold text-gray-900 mb-2">{skill.name}</h1>
-        <p className="text-gray-500 leading-relaxed">{skill.description}</p>
+        <p className="text-[#6e6e6e] leading-relaxed">{skill.description}</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 rounded-xl border border-gray-200 bg-white p-5">
         <div>
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Author</p>
+          <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1">Author</p>
           <p className="text-sm text-gray-700">{skill.author}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Updated</p>
+          <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1">Updated</p>
           <p className="text-sm text-gray-700">{skill.updatedAt}</p>
         </div>
         <div>
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Usage</p>
+          <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1">Usage</p>
           <p className="text-sm text-gray-700">{skill.usageCount} uses</p>
         </div>
         {skill.requiredTools.length > 0 && (
           <div className="col-span-2 sm:col-span-3">
-            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1.5">Required tools</p>
+            <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1.5">Required tools</p>
             <div className="flex flex-wrap gap-1.5">
               {skill.requiredTools.map((t) => (
-                <span key={t} className="rounded-md bg-gray-100 px-2 py-0.5 text-xs text-gray-600">
+                <span key={t} className="rounded-md bg-gray-100 px-2 py-0.5 text-xs text-[#6e6e6e]">
                   {t}
                 </span>
               ))}
@@ -81,7 +81,7 @@ export default function SkillDetailPage({
         )}
         {skill.requiredContext.length > 0 && (
           <div className="col-span-2 sm:col-span-3">
-            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1.5">Required context</p>
+            <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1.5">Required context</p>
             <div className="flex flex-wrap gap-1.5">
               {skill.requiredContext.map((c) => (
                 <span key={c} className="rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700">
@@ -93,10 +93,10 @@ export default function SkillDetailPage({
         )}
         {skill.tags.length > 0 && (
           <div className="col-span-2 sm:col-span-3">
-            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1.5">Tags</p>
+            <p className="text-xs text-[#6e6e6e] uppercase tracking-wide mb-1.5">Tags</p>
             <div className="flex flex-wrap gap-1.5">
               {skill.tags.map((tag) => (
-                <span key={tag} className="rounded-md bg-gray-50 border border-gray-200 px-2 py-0.5 text-xs text-gray-500">
+                <span key={tag} className="rounded-md bg-gray-50 border border-gray-200 px-2 py-0.5 text-xs text-[#6e6e6e]">
                   {tag}
                 </span>
               ))}

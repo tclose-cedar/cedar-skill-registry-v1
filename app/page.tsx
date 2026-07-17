@@ -33,7 +33,7 @@ function SkillCard({ skill }: { skill: Skill }) {
     >
       <div className="flex items-start justify-between gap-2 mb-3">
         <div className="flex flex-wrap gap-1.5">
-          <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${sourceColors[skill.source] ?? 'bg-gray-100 text-gray-600'}`}>
+          <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${sourceColors[skill.source] ?? 'bg-gray-100 text-[#6e6e6e]'}`}>
             {skill.source}
           </span>
           {isNew && (
@@ -42,21 +42,21 @@ function SkillCard({ skill }: { skill: Skill }) {
             </span>
           )}
         </div>
-        <span className="shrink-0 text-xs text-gray-400">{skill.usageCount} uses</span>
+        <span className="shrink-0 text-xs text-[#6e6e6e]">{skill.usageCount} uses</span>
       </div>
       <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">
         {skill.name}
       </h3>
-      <p className="text-sm text-gray-500 line-clamp-2 flex-1 mb-3">{skill.description}</p>
+      <p className="text-sm text-[#6e6e6e] line-clamp-2 flex-1 mb-3">{skill.description}</p>
       {skill.requiredTools.length > 0 && (
         <div className="flex flex-wrap gap-1 mt-auto">
           {skill.requiredTools.slice(0, 3).map((t) => (
-            <span key={t} className="rounded-md bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500">
+            <span key={t} className="rounded-md bg-gray-100 px-1.5 py-0.5 text-xs text-[#6e6e6e]">
               {t}
             </span>
           ))}
           {skill.requiredTools.length > 3 && (
-            <span className="text-xs text-gray-400">+{skill.requiredTools.length - 3}</span>
+            <span className="text-xs text-[#6e6e6e]">+{skill.requiredTools.length - 3}</span>
           )}
         </div>
       )}
@@ -100,7 +100,7 @@ export default function Home() {
       {/* Sidebar */}
       <aside className="w-56 shrink-0 border-r border-gray-200 bg-[#f9f8f1] flex flex-col overflow-y-auto">
         <div className="px-4 py-5 border-b border-gray-100">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Functions</p>
+          <p className="text-xs font-semibold text-[#6e6e6e] uppercase tracking-wide">Functions</p>
         </div>
         <nav className="flex-1 py-2">
           {/* All */}
@@ -109,11 +109,11 @@ export default function Home() {
             className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
               activeFn === 'all'
                 ? 'bg-[#dbffb5] text-gray-900 font-medium'
-                : 'text-gray-600 hover:bg-gray-50'
+                : 'text-[#6e6e6e] hover:bg-gray-50'
             }`}
           >
             <span>All</span>
-            <span className={`rounded-full px-2 py-0.5 text-xs ${activeFn === 'all' ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-gray-400'}`}>
+            <span className={`rounded-full px-2 py-0.5 text-xs ${activeFn === 'all' ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-[#6e6e6e]'}`}>
               {publishedSkills.length}
             </span>
           </button>
@@ -132,13 +132,13 @@ export default function Home() {
                 className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
                   isActive
                     ? 'bg-[#dbffb5] text-gray-900 font-medium'
-                    : 'text-gray-600 hover:bg-gray-50'
+                    : 'text-[#6e6e6e] hover:bg-gray-50'
                 }`}
               >
                 <span>{label}</span>
                 <div className="flex items-center gap-1.5">
-                  {isInstalled && <span className="text-gray-500 text-xs">✓</span>}
-                  <span className={`rounded-full px-2 py-0.5 text-xs ${isActive ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-gray-400'}`}>
+                  {isInstalled && <span className="text-[#6e6e6e] text-xs">✓</span>}
+                  <span className={`rounded-full px-2 py-0.5 text-xs ${isActive ? 'bg-[#b2f200] text-gray-900' : 'bg-gray-100 text-[#6e6e6e]'}`}>
                     {groupSkills.length}
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export default function Home() {
           })}
         </nav>
         <div className="px-4 py-3 border-t border-gray-100">
-          <p className="text-xs text-gray-400">{publishedSkills.length} skills total</p>
+          <p className="text-xs text-[#6e6e6e]">{publishedSkills.length} skills total</p>
         </div>
       </aside>
 
@@ -161,14 +161,14 @@ export default function Home() {
                 <section key={fn}>
                   <div className="flex items-center gap-3 mb-4">
                     <h2 className="text-base font-semibold text-gray-800">{label}</h2>
-                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-[#6e6e6e]">
                       {groupSkills.length}
                     </span>
                     <div className="flex-1 h-px bg-gray-200" />
                     <button
                       onClick={() => handleInstall(fn, groupSkills)}
                       disabled={installingFn !== null || installedFns.has(fn)}
-                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-[#b2f200] hover:bg-[#dbffb5] hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-[#6e6e6e] hover:border-[#b2f200] hover:bg-[#dbffb5] hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {installingFn === fn && (
                         <span className="h-3 w-3 animate-spin rounded-full border border-gray-400 border-t-gray-700" />
@@ -190,7 +190,7 @@ export default function Home() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">{activeGroup.label}</h1>
-                  <p className="text-sm text-gray-400 mt-0.5">{activeGroup.skills.length} skills</p>
+                  <p className="text-sm text-[#6e6e6e] mt-0.5">{activeGroup.skills.length} skills</p>
                 </div>
                 <button
                   onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
