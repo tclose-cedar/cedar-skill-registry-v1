@@ -106,7 +106,7 @@ export default function Home() {
           {/* All */}
           <button
             onClick={() => setActiveFn('all')}
-            className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+            className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors rounded-[40rem] ${
               activeFn === 'all'
                 ? 'bg-[#dbffb5] text-gray-900 font-medium'
                 : 'text-[#6e6e6e] hover:bg-gray-50'
@@ -129,7 +129,7 @@ export default function Home() {
               <button
                 key={fn}
                 onClick={() => setActiveFn(fn)}
-                className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+                className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors rounded-[40rem] ${
                   isActive
                     ? 'bg-[#dbffb5] text-gray-900 font-medium'
                     : 'text-[#6e6e6e] hover:bg-gray-50'
@@ -168,7 +168,7 @@ export default function Home() {
                     <button
                       onClick={() => handleInstall(fn, groupSkills)}
                       disabled={installingFn !== null || installedFns.has(fn)}
-                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="shrink-0 flex items-center gap-1.5 rounded-[40rem] border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {installingFn === fn && (
                         <span className="h-3 w-3 animate-spin rounded-full border border-gray-900/20 border-t-gray-900" />
@@ -195,7 +195,7 @@ export default function Home() {
                 <button
                   onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
                   disabled={installingFn !== null || installedFns.has(activeGroup.fn)}
-                  className="shrink-0 flex items-center gap-1.5 rounded-lg border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="shrink-0 flex items-center gap-1.5 rounded-[40rem] border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {installingFn === activeGroup.fn && (
                     <span className="h-3 w-3 animate-spin rounded-full border border-gray-900/20 border-t-gray-900" />

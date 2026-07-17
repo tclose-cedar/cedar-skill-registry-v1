@@ -7,7 +7,7 @@ export default function Nav() {
       <div className="w-56 shrink-0 px-4">
         <Link href="/">
           <span className="font-medium text-lg tracking-tight text-gray-900">
-            cedar skill registry
+            cedar<span className="font-normal text-base text-gray-700"> skill registry</span>
           </span>
         </Link>
       </div>
