@@ -152,7 +152,7 @@ export default function Home() {
       </aside>
 
       {/* Content panel */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto bg-white">
         <div className="p-8">
           {activeFn === 'all' ? (
             /* All view — grouped sections with per-section install */
