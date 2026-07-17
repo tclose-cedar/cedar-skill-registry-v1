@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Aeonik;
+  src: url('https://cdn.prod.website-files.com/6938614b9196c1d9f6c20d74/6938633f1b2bc3f28085523e_Aeonik-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,5 +21,5 @@
 body {
   background: #f9f8f1;
   color: #6e6e6e;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Aeonik, Arial, Helvetica, sans-serif;
 }

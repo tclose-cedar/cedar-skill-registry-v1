@@ -168,10 +168,10 @@ export default function Home() {
                     <button
                       onClick={() => handleInstall(fn, groupSkills)}
                       disabled={installingFn !== null || installedFns.has(fn)}
-                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-[#6e6e6e] hover:border-[#b2f200] hover:bg-[#dbffb5] hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="shrink-0 flex items-center gap-1.5 rounded-lg border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {installingFn === fn && (
-                        <span className="h-3 w-3 animate-spin rounded-full border border-gray-400 border-t-gray-700" />
+                        <span className="h-3 w-3 animate-spin rounded-full border border-gray-900/20 border-t-gray-900" />
                       )}
                       {installedFns.has(fn) ? '✓ Installed' : installingFn === fn ? 'Installing...' : 'Install'}
                     </button>
@@ -195,10 +195,10 @@ export default function Home() {
                 <button
                   onClick={() => handleInstall(activeGroup.fn, activeGroup.skills)}
                   disabled={installingFn !== null || installedFns.has(activeGroup.fn)}
-                  className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 bg-[#b2f200] hover:bg-[#dbffb5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm"
+                  className="shrink-0 flex items-center gap-1.5 rounded-lg border border-[#b2f200] bg-[#b2f200] px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-[#dbffb5] hover:border-[#dbffb5] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {installingFn === activeGroup.fn && (
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-gray-900/20 border-t-gray-900" />
+                    <span className="h-3 w-3 animate-spin rounded-full border border-gray-900/20 border-t-gray-900" />
                   )}
                   {installedFns.has(activeGroup.fn)
                     ? '✓ Installed'
