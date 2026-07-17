@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Nav() {
   return (
-    <header style={{ backgroundColor: '#b2f200' }} className="flex h-16 items-center">
+    <header style={{ backgroundColor: '#dbffb5' }} className="flex h-16 items-center">
       {/* Title column — same width as the sidebar */}
       <div className="w-56 shrink-0 px-4">
         <Link href="/">
